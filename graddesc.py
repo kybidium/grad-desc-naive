@@ -95,25 +95,33 @@ def least_squares_integral(lb, ub, N, a0, a1, a2, a3, a4, a5):
         math.sin), lb, ub, N)
     return result
 
-def grad_desc_actual(lb, ub, N, a0, a1, a2, a3, a4, a5):
+def grad_desc(lb, ub, N, a0, a1, a2, a3, a4, a5):
     """
     A rudimentary form of gradient descent--checks what the effect
     would be of increasing or decreasing each coefficient on the value of the
     least-squares integral function. If a decrement decreases the value,
     the variable is decremented; if an increment increases it, the variable is
-    incremented. Runs until the least-squares integral falls below the maximum
-    acceptable value, then returns the coefficients.
+    incremented. Runs until the increment falls below a certain value,
+    then returns a list of the coefficients.
+
+    To change the increment, keeps track of whether or not the least-squares
+    integral value has changed from one iteration to the next. If not, it is an
+    indication that the (de/in)ncrement has too high of an absolute value, so it
+    is resized by a factor of ten.
 
     Inputs:
         lb (int): the lower bound of the least-squares intgeral
         ub (int): the upper bound of the least-squares integral
         N (int): the number of partitions of the least-squares integral
         a0...a5 (int): the coefficients of the polynomial
-        inc (int): the value to (de/in)crement the coefficients by
-        tol (int): the maximum acceptable value for the least-squares integral
     """
-    inc_tally = 0
+
+    # number of times the value of the least_squares_integral has been the same
+    repeated = 0
+
+    # decrement/increment by which to change each coefficient
     inc = 10
+
     while (inc > 0.0001):
         # a0
         lsi_init = least_squares_integral(lb, ub, N, a0, a1, a2, a3, a4, a5)
@@ -174,45 +182,14 @@ def grad_desc_actual(lb, ub, N, a0, a1, a2, a3, a4, a5):
 
         lsi_new = least_squares_integral(lb, ub, N, a0, a1, a2, a3, a4, a5)
         if lsi_new == lsi_init:
-            inc_tally += 1
-        if inc_tally > 1:
-            inc_tally = 0
+            repeated += 1
+        if repeated > 1:
+            repeated = 0
             inc /= 10
 
-    return [a0, a1, a2, a3, a4, a5,
-        least_squares_integral(lb, ub, N, a0, a1, a2, a3, a4, a5)]
+    return [a0, a1, a2, a3, a4, a5]
 
-"""
-def grad_descend_recurs(lb, ub, N, a0, a1, a2, a3, a4, a5):
-    """
-    #recurses grad desc
-"""
-    inc = 10
-    # amount by which each coefficient can be incremented
-
-    tol = 25
-    # tolerance of least-squares integral--gradient descent function runs
-    #until the least-squares difference drops below this value
-
-    toltol = 0.01
-    # end-goal for the difference of the least-squares integral
-    #once tolerance reaches this value, the process stops
-
-    init = least_squares_integral(lb, ub, N, a0, a1, a2, a3, a4, a5)
-
-    while (tol > toltol):
-        avals = grad_desc_actual(lb, ub, N, a0, a1, a2, a3, a4, a5, inc, tol)
-        a0, a1, a2, a3, a4, a5, new = avals
-
-        # change the increment proportionally to the change in the least-squares value
-
-        tol *=  .6
-        init = new
-        
-    return avals
-"""
-
-valsa = grad_desc_actual(-3,3,10000,0,0,0,0,0,0)
+valsa = grad_desc(-3,3,10000,0,0,0,0,0,0)
 print(valsa)
 x = np.linspace(-3, 3, 100)
 
