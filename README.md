@@ -12,3 +12,4 @@ Not very optimized at all; arrives at an approximation eventually, but *currentl
 To run:
 ```
 python3 graddesc.py
+```
