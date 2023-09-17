@@ -1,4 +1,4 @@
-# ml-naive
+# grad-desc-naive
 
 GRADDESC:
 A very naive implementation of gradient descent for function approximation of sine based on a Khan Academy article. Aims to replicate the described process without prior knowledge of how these implementations are commonly done. Example of functional programming work. 
