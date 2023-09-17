@@ -175,9 +175,15 @@ def grad_descend_recurs(lb, ub, N, a0, a1, a2, a3, a4, a5):
     recurses grad desc
     """
     inc = 1
-    tol = 100
-    inctol = 0.001
+    # amount by which each coefficient can be incremented
+
+    tol = 50
+    # tolerance of least-squares integral--gradient descent function runs
+    #until the least-squares difference drops below this value
+
     toltol = 0.01
+    # tolerance of the tolerance
+
     while (tol > toltol):
         avals = grad_desc_actual(lb, ub, N, a0, a1, a2, a3, a4, a5, inc, tol)
         a0, a1, a2, a3, a4, a5 = avals
