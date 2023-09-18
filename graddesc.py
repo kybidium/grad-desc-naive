@@ -122,7 +122,7 @@ def grad_desc(lb, ub, N, a0, a1, a2, a3, a4, a5):
     # decrement/increment by which to change each coefficient
     inc = 10
 
-    while (inc > 0.0001):
+    while (inc > 0.000001):
         # a0
         lsi_init = least_squares_integral(lb, ub, N, a0, a1, a2, a3, a4, a5)
         if (least_squares_integral(lb, ub, N, a0-inc, a1, a2, a3, a4, a5)
@@ -189,7 +189,7 @@ def grad_desc(lb, ub, N, a0, a1, a2, a3, a4, a5):
 
     return [a0, a1, a2, a3, a4, a5]
 
-valsa = grad_desc(-3,3,10000,0,0,0,0,0,0)
+valsa = grad_desc(-3,3,30,0,0,0,0,0,0)
 print(valsa)
 x = np.linspace(-3, 3, 100)
 
@@ -204,3 +204,4 @@ y2 = np.array([math.sin(xi) for xi in x])
 
 plt.plot(x, y1, 'r--', x, y2, 'b--')
 plt.savefig('plot.png')
+print('Red line indicates the approximation; blue the sine function\n')
