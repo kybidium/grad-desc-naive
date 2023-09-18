@@ -1,7 +1,7 @@
 # grad-desc-naive
 
 GRADDESC:
-A naive implementation of gradient descent for polynomial approximation of sine. Aims to replicate the described process without prior knowledge of how these implementations are commonly done. Example of functional programming with Python, as well as use of numpy and matplotlib. 
+A naive implementation of gradient descent for polynomial approximation of sine. Aims to replicate the described process without prior knowledge of how gradient descent is normally implemented. Example of functional programming with Python, as well as use of numpy and matplotlib. 
 
 Visualizes constrast between original function and approximation using matplotlib and numpy.
 
