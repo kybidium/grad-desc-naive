@@ -3,7 +3,7 @@
 GRADDESC:
 A very naive implementation of gradient descent for function approximation of sine based on a Khan Academy article. Aims to replicate the described process without prior knowledge of how these implementations are commonly done. Example of functional programming work. 
 
-Visualizes difference between original function and approximatoin using matplotlib and numpy.
+Visualizes constrast between original function and approximation using matplotlib and numpy.
 
 Inspired by a project in my Calculus III class, and thus transferred here from my college account (@luisojedacs). Choice of constants is arbitrary right now and implementation is not generalized to other functions.
 
