@@ -13,4 +13,4 @@ Not fully optimized--arrives at a visually-identical approximation after about 3
 ```
 python3 graddesc.py
 ```
-Then, the file 'plot.png' will be in the same directory and will depict the approximation as a red dotted line, with the actual sine function as a blue line.
+After the code is run, the file 'plot.png' will be saved to the same directory, depicting the approximation as a red dotted line, with the actual sine function as a blue line.
