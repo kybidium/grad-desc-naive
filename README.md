@@ -5,7 +5,7 @@ A very naive implementation of gradient descent for function approximation of si
 
 Visualizes constrast between original function and approximation using matplotlib and numpy.
 
-Inspired by a project in my Calculus III class, and thus transferred here from my college account (@luisojedacs). Choice of constants is arbitrary right now and implementation is not generalized to other functions.
+Inspired by a project in my Calculus III class, and thus initially transferred here from my college account (@luisojedacs). Choice of constants is arbitrary right now and implementation is not generalized to other functions.
 
 Not fully optimized--arrives at a visually-identical approximation after about 30 seconds with the current hard-coded final increment value; this happens far faster with a higher final increment value, but is less accurate. Current goals include generalizing the code for polynomials of random coefficients and allowing for optional command-line arguments for the final increment value, function interval, and polynomial coefficients or common function names (sin, cos, tan, etc.).
 
